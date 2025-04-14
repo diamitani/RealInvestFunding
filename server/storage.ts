@@ -1,4 +1,6 @@
 import { users, type User, type InsertUser, leads, type Lead, type InsertLead, chatLogs, type ChatLog, type InsertChatLog } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -18,83 +20,72 @@ export interface IStorage {
   getChatLogsByLeadId(leadId: number): Promise<ChatLog[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private leadsData: Map<number, Lead>;
-  private chatLogsData: Map<number, ChatLog>;
-  private currentUserId: number;
-  private currentLeadId: number;
-  private currentChatLogId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.leadsData = new Map();
-    this.chatLogsData = new Map();
-    this.currentUserId = 1;
-    this.currentLeadId = 1;
-    this.currentChatLogId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentUserId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
     return user;
   }
   
   // Lead related methods
   async createLead(insertLead: InsertLead): Promise<Lead> {
-    const id = this.currentLeadId++;
-    const now = new Date();
-    const lead: Lead = { 
-      ...insertLead, 
-      id,
-      propertyAddress: insertLead.propertyAddress || null,
-      loanAmount: insertLead.loanAmount || null,
-      message: insertLead.message || null,
-      createdAt: now
-    };
-    this.leadsData.set(id, lead);
+    const [lead] = await db
+      .insert(leads)
+      .values({
+        fullName: insertLead.fullName,
+        email: insertLead.email,
+        phone: insertLead.phone,
+        investmentType: insertLead.investmentType,
+        propertyAddress: insertLead.propertyAddress || null,
+        loanAmount: insertLead.loanAmount || null,
+        message: insertLead.message || null
+      })
+      .returning();
     return lead;
   }
   
   async getLeadById(id: number): Promise<Lead | undefined> {
-    return this.leadsData.get(id);
+    const [lead] = await db.select().from(leads).where(eq(leads.id, id));
+    return lead || undefined;
   }
   
   async getAllLeads(): Promise<Lead[]> {
-    return Array.from(this.leadsData.values());
+    return await db.select().from(leads).orderBy(leads.createdAt);
   }
   
   // Chat log related methods
   async createChatLog(insertChatLog: InsertChatLog): Promise<ChatLog> {
-    const id = this.currentChatLogId++;
-    const now = new Date();
-    const chatLog: ChatLog = {
-      ...insertChatLog,
-      id,
-      leadId: insertChatLog.leadId || null,
-      timestamp: now
-    };
-    this.chatLogsData.set(id, chatLog);
+    const [chatLog] = await db
+      .insert(chatLogs)
+      .values({
+        leadId: insertChatLog.leadId || null,
+        message: insertChatLog.message,
+        isUser: insertChatLog.isUser
+      })
+      .returning();
     return chatLog;
   }
   
   async getChatLogsByLeadId(leadId: number): Promise<ChatLog[]> {
-    return Array.from(this.chatLogsData.values())
-      .filter(chatLog => chatLog.leadId === leadId)
-      .sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
+    return await db
+      .select()
+      .from(chatLogs)
+      .where(eq(chatLogs.leadId, leadId))
+      .orderBy(chatLogs.timestamp);
   }
 }
 
-export const storage = new MemStorage();
+// Using the DatabaseStorage implementation instead of MemStorage
+export const storage = new DatabaseStorage();
