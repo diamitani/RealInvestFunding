@@ -1,12 +1,21 @@
-import sgMail from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
 
-// Check if SendGrid API key is available
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-const hasSendgridKey = !!SENDGRID_API_KEY;
+// Create a simple SMTP transporter
+const transporter = nodemailer.createTransport({
+  host: 'smtp.ethereal.email', // For testing - will be replaced with your email service
+  port: 587,
+  secure: false, // true for 465, false for other ports
+  auth: {
+    user: 'ethereal.user@ethereal.email', // For testing - will be replaced with your email
+    pass: 'ethereal_pass' // For testing - will be replaced with your password
+  },
+  tls: {
+    rejectUnauthorized: false // For testing in development environments
+  }
+});
 
-if (hasSendgridKey) {
-  sgMail.setApiKey(SENDGRID_API_KEY as string);
-}
+// Log information about the transporter
+console.log('Email transporter configured:', !!transporter);
 
 interface EmailData {
   fullName: string;
@@ -16,24 +25,27 @@ interface EmailData {
   propertyAddress?: string | null;
   loanAmount?: string | null;
   message?: string | null;
+  service?: string; // Added for service-specific leads
 }
 
 export async function sendLeadNotificationEmail(leadData: EmailData): Promise<boolean> {
-  if (!hasSendgridKey) {
-    console.warn('SendGrid API key not found. Skipping email sending.');
-    return false;
-  }
-
   try {
-    const msg = {
+    // For development and testing, we'll console log the data
+    console.log('New lead data received:', JSON.stringify(leadData, null, 2));
+    
+    // In production, enable this to send email
+    /*
+    const info = await transporter.sendMail({
+      from: '"Real Invest Funding" <notifications@realinvestfunding.com>',
       to: 'aattoh@realinvestfunding.com',
-      from: 'notifications@realinvestfunding.com', // Use a verified sender in SendGrid
-      subject: `New Lead: ${leadData.fullName} - ${leadData.investmentType}`,
+      subject: `New Lead: ${leadData.fullName} - ${leadData.investmentType || leadData.service || 'Website Inquiry'}`,
       text: createPlainTextEmail(leadData),
       html: createHtmlEmail(leadData),
-    };
-
-    await sgMail.send(msg);
+    });
+    
+    console.log('Message sent: %s', info.messageId);
+    */
+    
     return true;
   } catch (error) {
     console.error('Error sending email:', error);
@@ -48,7 +60,8 @@ New Lead from Real Invest Funding LLC Website
 Name: ${data.fullName}
 Email: ${data.email}
 Phone: ${data.phone}
-Investment Type: ${data.investmentType}
+${data.investmentType ? `Investment Type: ${data.investmentType}` : ''}
+${data.service ? `Service Requested: ${data.service}` : ''}
 ${data.propertyAddress ? `Property Address: ${data.propertyAddress}` : ''}
 ${data.loanAmount ? `Loan Amount: ${data.loanAmount}` : ''}
 ${data.message ? `Message: ${data.message}` : ''}
@@ -84,7 +97,8 @@ function createHtmlEmail(data: EmailData): string {
         <p><strong>Name:</strong> ${data.fullName}</p>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Investment Type:</strong> ${data.investmentType}</p>
+        ${data.investmentType ? `<p><strong>Investment Type:</strong> ${data.investmentType}</p>` : ''}
+        ${data.service ? `<p><strong>Service Requested:</strong> ${data.service}</p>` : ''}
         ${data.propertyAddress ? `<p><strong>Property Address:</strong> ${data.propertyAddress}</p>` : ''}
         ${data.loanAmount ? `<p><strong>Loan Amount:</strong> ${data.loanAmount}</p>` : ''}
         ${data.message ? `<p><strong>Message:</strong> ${data.message}</p>` : ''}

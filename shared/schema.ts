@@ -14,6 +14,7 @@ export const leads = pgTable("leads", {
   email: text("email").notNull(),
   phone: text("phone").notNull(),
   investmentType: text("investment_type").notNull(),
+  service: text("service"), // Added for service-specific leads (CDNA, Proof of Funds, etc.)
   propertyAddress: text("property_address"),
   loanAmount: text("loan_amount"),
   message: text("message"),
@@ -38,6 +39,7 @@ export const insertLeadSchema = createInsertSchema(leads).pick({
   email: true,
   phone: true,
   investmentType: true,
+  service: true,
   propertyAddress: true,
   loanAmount: true,
   message: true,

@@ -48,6 +48,7 @@ export class DatabaseStorage implements IStorage {
         email: insertLead.email,
         phone: insertLead.phone,
         investmentType: insertLead.investmentType,
+        service: insertLead.service || null,
         propertyAddress: insertLead.propertyAddress || null,
         loanAmount: insertLead.loanAmount || null,
         message: insertLead.message || null

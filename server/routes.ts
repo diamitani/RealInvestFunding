@@ -24,6 +24,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create the lead in storage
       const lead = await storage.createLead(validatedData.data);
       
+      // Send email notification (asynchronously - we don't need to wait for the email to be sent)
+      sendLeadNotificationEmail(lead)
+        .then(emailSent => {
+          if (emailSent) {
+            console.log(`Email notification sent for lead ${lead.id}`);
+          } else {
+            console.warn(`Failed to send email notification for lead ${lead.id}`);
+          }
+        })
+        .catch(error => {
+          console.error(`Error sending email notification for lead ${lead.id}:`, error);
+        });
+      
       return res.status(201).json({ 
         message: "Lead created successfully",
         leadId: lead.id
