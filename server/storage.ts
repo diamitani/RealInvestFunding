@@ -83,6 +83,7 @@ export class MemStorage implements IStorage {
     const chatLog: ChatLog = {
       ...insertChatLog,
       id,
+      leadId: insertChatLog.leadId || null,
       timestamp: now
     };
     this.chatLogsData.set(id, chatLog);

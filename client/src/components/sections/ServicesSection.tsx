@@ -16,7 +16,10 @@ const services: ServiceProps[] = [
     price: "$34.97",
     imageSrc: "https://images.unsplash.com/photo-1560518883-f9f81a25e1c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Order Now",
-    buttonAction: () => console.log("Order CDNA Report")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - CDNA Reports";
+    }
   },
   {
     title: "Proof of Funds",
@@ -24,7 +27,10 @@ const services: ServiceProps[] = [
     price: "$19.97",
     imageSrc: "https://images.unsplash.com/photo-1582402978777-53d2506b8886?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Request Now",
-    buttonAction: () => console.log("Request Proof of Funds")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Proof of Funds";
+    }
   },
   {
     title: "Debt Stack Reports",
@@ -32,7 +38,10 @@ const services: ServiceProps[] = [
     price: "Custom Pricing",
     imageSrc: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Inquire",
-    buttonAction: () => console.log("Inquire about Debt Stack Reports")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Debt Stack Reports";
+    }
   },
   {
     title: "Off-Market Leads",
@@ -40,7 +49,10 @@ const services: ServiceProps[] = [
     price: "Per Lead/Subscription",
     imageSrc: "https://images.unsplash.com/photo-1573599852326-2d4da0bbe613?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Learn More",
-    buttonAction: () => console.log("Learn about Off-Market Leads")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Off-Market Leads";
+    }
   }
 ];
 

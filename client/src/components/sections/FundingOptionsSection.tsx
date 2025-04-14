@@ -17,7 +17,10 @@ const fundingOptions: FundingOptionProps[] = [
       "No prepayment penalties"
     ],
     buttonText: "Apply Now",
-    buttonAction: () => console.log("Apply for Fix & Flip")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Fix & Flip Loans";
+    }
   },
   {
     title: "Rental Property Loans",
@@ -28,7 +31,10 @@ const fundingOptions: FundingOptionProps[] = [
       "Competitive rates"
     ],
     buttonText: "Apply Now",
-    buttonAction: () => console.log("Apply for Rental Property")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Rental Property Loans";
+    }
   },
   {
     title: "Commercial Property Loans",
@@ -39,7 +45,10 @@ const fundingOptions: FundingOptionProps[] = [
       "Fast due diligence process"
     ],
     buttonText: "Apply Now",
-    buttonAction: () => console.log("Apply for Commercial Property")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Commercial Property Loans";
+    }
   },
   {
     title: "Ground-Up Construction",
@@ -50,7 +59,10 @@ const fundingOptions: FundingOptionProps[] = [
       "Project management support"
     ],
     buttonText: "Apply Now",
-    buttonAction: () => console.log("Apply for Ground-Up Construction")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Ground-Up Construction";
+    }
   },
   {
     title: "Proof of Funds",
@@ -61,7 +73,10 @@ const fundingOptions: FundingOptionProps[] = [
       "Strengthen your offers"
     ],
     buttonText: "Request Now",
-    buttonAction: () => console.log("Request Proof of Funds")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - Proof of Funds";
+    }
   },
   {
     title: "CDNA Reports",
@@ -72,7 +87,10 @@ const fundingOptions: FundingOptionProps[] = [
       "Make better-informed offers"
     ],
     buttonText: "Order Report",
-    buttonAction: () => console.log("Order CDNA Report")
+    buttonAction: () => {
+      document.location.href = "#contact";
+      document.title = "Real Invest Funding - CDNA Reports";
+    }
   }
 ];
 
