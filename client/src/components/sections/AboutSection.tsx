@@ -4,21 +4,22 @@ export function AboutSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-6">About Real Invest Funding LLC</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-6">MEET Real Invest Funding LLC</h2>
+            <h3 className="text-xl md:text-2xl font-heading font-semibold text-primary mb-4">YOUR PARTNER IN YOUR REAL ESTATE INVESTING SUCCESS</h3>
             <p className="text-gray-600 mb-4">
-              At Real Invest Funding LLC, we understand the unique challenges faced by real estate investors. 
-              Founded by investors for investors, we've built a lending platform that prioritizes speed, 
-              flexibility, and transparency.
+              Welcome to Real Invest Funding LLC, where we transcend the role of a conventional private money lender. We take pride in being your committed partner on the journey towards building enduring and sustainable wealth through real estate investments.
             </p>
             <p className="text-gray-600 mb-4">
-              Our team brings decades of combined experience in real estate investing, finance, and property 
-              analysis. We use this expertise to evaluate deals based on their potential, not just traditional 
-              lending metrics.
+              Our CEO Antoinette Y Attoh has forged a reputation that hinges on the belief that your success is our success. At Real Invest Funding LLC, we prioritize our clients' needs above all else.
             </p>
-            <p className="text-gray-600 mb-4">
-              Whether you're a seasoned investor with multiple properties or just starting your real estate 
-              journey, we offer funding solutions tailored to your specific needs and investment strategy.
-            </p>
+            <h3 className="text-xl font-heading font-semibold text-gray-800 mt-6 mb-3">WHY CHOOSE Real Invest Funding LLC?</h3>
+            <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
+              <li><strong>Proven Expertise:</strong> Our team brings a wealth of knowledge to guide your investment decisions.</li>
+              <li><strong>Tailored Solutions:</strong> We understand that each investment journey is unique. Our solutions are personalized to align with your goals and aspirations.</li>
+              <li><strong>Comprehensive Services:</strong> From Private Money Lending to Joint Ventures, we cover all aspects of real estate investment funding.</li>
+              <li><strong>Integrity and Trust:</strong> Our commitment to transparency and ethical practices ensures your confidence in every investment choice.</li>
+              <li><strong>Results-Driven:</strong> Our track record of success speaks for itself, demonstrating our ability to deliver impressive returns and market-ready properties.</li>
+            </ul>
             <div className="mt-6">
               <a href="#contact" className="inline-block bg-primary text-white py-3 px-6 rounded-md font-heading font-medium hover:bg-blue-700 transition-colors">
                 Partner With Us

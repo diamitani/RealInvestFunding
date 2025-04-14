@@ -12,7 +12,7 @@ interface ServiceProps {
 const services: ServiceProps[] = [
   {
     title: "CDNA Reports",
-    description: "Get detailed property valuation data to make better investment decisions.",
+    description: "This comprehensive property valuation is as close as you can get to a professional appraisal without the high cost.",
     price: "$34.97",
     imageSrc: "https://images.unsplash.com/photo-1560518883-f9f81a25e1c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Order Now",
@@ -23,7 +23,7 @@ const services: ServiceProps[] = [
   },
   {
     title: "Proof of Funds",
-    description: "Official letter verifying your funding capacity to strengthen your offers.",
+    description: "Obtain your proof of funds letter to accompany purchase offers for investment properties across the nation for only $19.97.",
     price: "$19.97",
     imageSrc: "https://images.unsplash.com/photo-1582402978777-53d2506b8886?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Request Now",
@@ -34,7 +34,7 @@ const services: ServiceProps[] = [
   },
   {
     title: "Debt Stack Reports",
-    description: "Discover tax liens and second mortgages to avoid costly surprises.",
+    description: "Get essential details about debts associated with an investment property, including mortgages, outstanding balances, and tax liens.",
     price: "Custom Pricing",
     imageSrc: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Inquire",
@@ -45,7 +45,7 @@ const services: ServiceProps[] = [
   },
   {
     title: "Off-Market Leads",
-    description: "AI-sourced high-equity properties with low competition.",
+    description: "Access exclusive leads on non-owner-occupied properties with high equity using our advanced AI technology with little competition.",
     price: "Per Lead/Subscription",
     imageSrc: "https://images.unsplash.com/photo-1573599852326-2d4da0bbe613?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Learn More",
@@ -61,8 +61,8 @@ export function ServicesSection() {
     <section id="services" className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-4">Value-Added Services</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">Tools to help you make better investment decisions</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-4">Services</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">At Real Invest Funding LLC, we are genuinely invested in your real estate investment success. Our resources help you minimize risks and maximize ROI.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -55,7 +55,7 @@ export function Footer() {
               </li>
               <li className="flex items-center">
                 <i className="fas fa-phone mr-2 text-amber-500"></i>
-                <a href="tel:+18001234567" className="text-gray-300 hover:text-white transition-colors">1-800-123-4567</a>
+                <a href="tel:+16303439252" className="text-gray-300 hover:text-white transition-colors">630-343-9252</a>
               </li>
               <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact Form</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Support</a></li>
