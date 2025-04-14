@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ServiceFormModal } from "../forms/ServiceFormModal";
 
 interface ServiceProps {
   title: string;
@@ -6,7 +8,11 @@ interface ServiceProps {
   price: string;
   imageSrc: string;
   buttonText: string;
-  buttonAction: () => void;
+  formTitle: string;
+  formDescription: string;
+  serviceName: string;
+  includePropertyAddress: boolean;
+  includeLoanAmount: boolean;
 }
 
 const services: ServiceProps[] = [
@@ -16,10 +22,11 @@ const services: ServiceProps[] = [
     price: "$34.97",
     imageSrc: "https://images.unsplash.com/photo-1560518883-f9f81a25e1c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Order Now",
-    buttonAction: () => {
-      document.location.href = "#contact";
-      document.title = "Real Invest Funding - CDNA Reports";
-    }
+    formTitle: "Order CDNA Report",
+    formDescription: "Fill out the form below to order your CDNA Report. We'll process your order and contact you with next steps.",
+    serviceName: "CDNA Report",
+    includePropertyAddress: true,
+    includeLoanAmount: false
   },
   {
     title: "Proof of Funds",
@@ -27,10 +34,11 @@ const services: ServiceProps[] = [
     price: "$19.97",
     imageSrc: "https://images.unsplash.com/photo-1582402978777-53d2506b8886?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Request Now",
-    buttonAction: () => {
-      document.location.href = "#contact";
-      document.title = "Real Invest Funding - Proof of Funds";
-    }
+    formTitle: "Request Proof of Funds",
+    formDescription: "Complete this form to request your Proof of Funds letter. Once submitted, we'll prepare your document and contact you shortly.",
+    serviceName: "Proof of Funds",
+    includePropertyAddress: false,
+    includeLoanAmount: true
   },
   {
     title: "Debt Stack Reports",
@@ -38,10 +46,11 @@ const services: ServiceProps[] = [
     price: "Custom Pricing",
     imageSrc: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Inquire",
-    buttonAction: () => {
-      document.location.href = "#contact";
-      document.title = "Real Invest Funding - Debt Stack Reports";
-    }
+    formTitle: "Request Debt Stack Report",
+    formDescription: "Interested in a Debt Stack Report? Fill out this form with your property details and we'll provide you with pricing and next steps.",
+    serviceName: "Debt Stack Report",
+    includePropertyAddress: true,
+    includeLoanAmount: false
   },
   {
     title: "Off-Market Leads",
@@ -49,14 +58,25 @@ const services: ServiceProps[] = [
     price: "Per Lead/Subscription",
     imageSrc: "https://images.unsplash.com/photo-1573599852326-2d4da0bbe613?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
     buttonText: "Learn More",
-    buttonAction: () => {
-      document.location.href = "#contact";
-      document.title = "Real Invest Funding - Off-Market Leads";
-    }
+    formTitle: "Off-Market Leads Information",
+    formDescription: "Interested in our Off-Market Leads service? Complete this form and we'll contact you with details about our lead packages and pricing.",
+    serviceName: "Off-Market Leads",
+    includePropertyAddress: false,
+    includeLoanAmount: false
   }
 ];
 
 export function ServicesSection() {
+  const [activeServiceIndex, setActiveServiceIndex] = useState<number | null>(null);
+
+  const openModal = (index: number) => {
+    setActiveServiceIndex(index);
+  };
+
+  const closeModal = () => {
+    setActiveServiceIndex(null);
+  };
+
   return (
     <section id="services" className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
@@ -81,7 +101,7 @@ export function ServicesSection() {
                 <div className="flex justify-between items-center">
                   <span className="text-primary font-bold">{service.price}</span>
                   <Button 
-                    onClick={service.buttonAction}
+                    onClick={() => openModal(index)}
                     className="bg-primary text-white py-1.5 px-4 rounded-md hover:bg-blue-700 transition-colors text-sm"
                   >
                     {service.buttonText}
@@ -91,6 +111,19 @@ export function ServicesSection() {
             </div>
           ))}
         </div>
+
+        {/* Service Form Modals */}
+        {activeServiceIndex !== null && (
+          <ServiceFormModal
+            isOpen={true}
+            onClose={closeModal}
+            serviceName={services[activeServiceIndex].serviceName}
+            title={services[activeServiceIndex].formTitle}
+            description={services[activeServiceIndex].formDescription}
+            includePropertyAddress={services[activeServiceIndex].includePropertyAddress}
+            includeLoanAmount={services[activeServiceIndex].includeLoanAmount}
+          />
+        )}
       </div>
     </section>
   );
