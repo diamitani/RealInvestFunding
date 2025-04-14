@@ -5,7 +5,7 @@ import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { FundingOptionsSection } from "@/components/sections/FundingOptionsSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ChatBot } from "@/components/chat/ChatBot";
 
@@ -19,7 +19,7 @@ export function Home() {
         <FundingOptionsSection />
         <ProcessSection />
         <ServicesSection />
-        <TestimonialsSection />
+
         <ContactSection />
       </main>
       <Footer />

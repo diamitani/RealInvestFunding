@@ -29,6 +29,11 @@ const features: FeatureProps[] = [
     icon: "fas fa-arrows-alt",
     title: "It's Flexible",
     description: "Private money lenders don't have the same strictly enforced guidelines, so they are more willing to help creatively structure loans."
+  },
+  {
+    icon: "fas fa-handshake",
+    title: "It's Relationship-Based",
+    description: "We build lasting relationships with our investors, offering continual support throughout your real estate investment journey."
   }
 ];
 
@@ -37,11 +42,11 @@ export function FeaturesSection() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-4">5 Reasons Why Investors Use Private Money</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-4">6 Reasons Why Investors Use Private Money</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">Many Investors pass on deals because they fall to the old adage that it takes money to make money. Well that is true, but if you leverage other peoples money, you don't need your own.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div 
               key={index} 

@@ -8,20 +8,7 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-heading font-semibold mb-4">Real Invest Funding LLC</h3>
             <p className="text-gray-300 mb-4">Your partner in real estate investment funding with flexible financing solutions.</p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-amber-500 transition-colors">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="text-white hover:text-amber-500 transition-colors">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" className="text-white hover:text-amber-500 transition-colors">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="text-white hover:text-amber-500 transition-colors">
-                <i className="fab fa-youtube"></i>
-              </a>
-            </div>
+
           </div>
           
           <div>
