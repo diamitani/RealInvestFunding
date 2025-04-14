@@ -38,7 +38,6 @@ export function ContactSection() {
       toast({
         title: "Application Submitted",
         description: "We'll get back to you within 24 hours with your funding options.",
-        variant: "success"
       });
       // Reset form
       setFormData({
@@ -66,8 +65,8 @@ export function ContactSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-6">Ready to Get Started?</h2>
-            <p className="text-gray-600 mb-8">Fill out the form, and we'll get back to you with your funding options within 24 hours.</p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-6">Contact Us</h2>
+            <p className="text-gray-600 mb-8">Enter your information below and we will be in touch to answer all of your questions. We look forward to talking with you!</p>
             
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -163,7 +162,7 @@ export function ContactSection() {
                 className="bg-primary text-white py-3 px-6 rounded-md font-heading font-medium hover:bg-blue-700 transition-colors"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Submitting..." : "Submit Application"}
+                {isSubmitting ? "Submitting..." : "Send Message"}
               </Button>
             </form>
           </div>
@@ -189,25 +188,15 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Call Us</p>
-                    <a href="tel:+18001234567" className="text-primary hover:underline">1-800-123-4567</a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="bg-primary rounded-full w-10 h-10 flex items-center justify-center text-white mr-4 mt-1 flex-shrink-0">
-                    <i className="fas fa-map-marker-alt"></i>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">Our Location</p>
-                    <address className="not-italic text-gray-600">1234 Investment Way<br/>Finance City, FC 12345</address>
+                    <a href="tel:+16303439252" className="text-primary hover:underline">630-343-9252</a>
                   </div>
                 </div>
               </div>
               
               <div>
                 <h4 className="font-heading font-semibold text-gray-800 mb-4">Referral Program</h4>
-                <p className="text-gray-600 mb-4">Earn $500+ for every successful referral! Submit leads via our contact form or email.</p>
-                <a href="#" className="text-primary font-medium hover:underline">Learn More About Our Referral Program</a>
+                <p className="text-gray-600 mb-4">We are excited to introduce our new referral program! Earn a minimum of $500 for each lead you send our way that results in a successful closing.</p>
+                <a href="#" className="text-primary font-medium hover:underline" onClick={() => document.title = "Real Invest Funding - Referral Program"}>Learn More About Our Referral Program</a>
               </div>
             </div>
           </div>

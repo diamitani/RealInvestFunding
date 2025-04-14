@@ -13,13 +13,27 @@ export function HeroSection() {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">Get Up To 100% Financing For Your Real Estate Investments</h1>
-          <p className="text-lg md:text-xl mb-8">Fund your fix & flips, rentals, or commercial properties with flexible terms and fast approvals. No credit minimums required.</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">Real Invest Funding LLC</h1>
+          <p className="text-2xl md:text-3xl font-semibold mb-8">"Up to 100% financing for your fix and flips!"</p>
+          <p className="text-lg mb-8">We specialize in Funding Homes. Every seasoned and new investor has one thing in common. They need money. Though that need is extremely high, most investors don't know where to find the best funding options.</p>
           <div className="flex flex-wrap gap-4">
-            <Button className="bg-amber-500 hover:bg-amber-400 text-gray-800 font-bold py-3 px-6 rounded-md">
-              Start Your Application
+            <Button 
+              className="bg-amber-500 hover:bg-amber-400 text-gray-800 font-bold py-3 px-6 rounded-md"
+              onClick={() => {
+                document.location.href = "#contact";
+                document.title = "Real Invest Funding - Get More Info";
+              }}
+            >
+              Get More Info Today
             </Button>
-            <Button variant="outline" className="bg-white bg-opacity-20 text-white border border-white py-3 px-6 rounded-md hover:bg-opacity-30">
+            <Button 
+              variant="outline" 
+              className="bg-white bg-opacity-20 text-white border border-white py-3 px-6 rounded-md hover:bg-opacity-30"
+              onClick={() => {
+                document.location.href = "#funding";
+                document.title = "Real Invest Funding - Explore Options";
+              }}
+            >
               Explore Options
             </Button>
           </div>
