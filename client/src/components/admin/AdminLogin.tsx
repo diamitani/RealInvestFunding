@@ -7,6 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { useToast } from "@/hooks/use-toast";
 
 export function AdminLogin() {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAdmin();
   const { toast } = useToast();
@@ -15,7 +16,7 @@ export function AdminLogin() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (login(password)) {
+    if (login(username, password)) {
       toast({
         title: "Login successful",
         description: "Welcome to the admin dashboard",
@@ -24,7 +25,7 @@ export function AdminLogin() {
     } else {
       toast({
         title: "Login failed",
-        description: "Incorrect password",
+        description: "Incorrect username or password",
         variant: "destructive",
       });
     }
@@ -36,11 +37,20 @@ export function AdminLogin() {
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">Admin Login</CardTitle>
           <CardDescription className="text-center">
-            Enter your password to access the admin dashboard
+            Enter your credentials to access the admin dashboard
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Input
+                type="email"
+                placeholder="Email"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="w-full"
+              />
+            </div>
             <div className="space-y-2">
               <Input
                 type="password"
