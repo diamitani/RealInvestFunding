@@ -33,18 +33,16 @@ export async function sendLeadNotificationEmail(leadData: EmailData): Promise<bo
     // For development and testing, we'll console log the data
     console.log('New lead data received:', JSON.stringify(leadData, null, 2));
     
-    // In production, enable this to send email
-    /*
+    // Send the email notification
     const info = await transporter.sendMail({
       from: '"Real Invest Funding" <notifications@realinvestfunding.com>',
-      to: 'aattoh@realinvestfunding.com',
+      to: 'aattoh@realinvest.com',
       subject: `New Lead: ${leadData.fullName} - ${leadData.investmentType || leadData.service || 'Website Inquiry'}`,
       text: createPlainTextEmail(leadData),
       html: createHtmlEmail(leadData),
     });
     
     console.log('Message sent: %s', info.messageId);
-    */
     
     return true;
   } catch (error) {
