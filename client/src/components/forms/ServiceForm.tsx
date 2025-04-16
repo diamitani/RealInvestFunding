@@ -64,13 +64,17 @@ export function ServiceForm({
   async function onSubmit(data: ServiceFormValues) {
     setIsSubmitting(true);
     try {
-      const response = await apiRequest(
-        "POST",
-        "/api/leads",
-        data
-      );
+      // Use regular fetch API since we're having issues with apiRequest
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+        credentials: "include",
+      });
 
-      if (response.status >= 200 && response.status < 300) {
+      if (response.ok) {
         toast({
           title: "Request submitted successfully",
           description: "We'll be in touch with you shortly.",
@@ -78,7 +82,8 @@ export function ServiceForm({
         form.reset();
         if (onSuccess) onSuccess();
       } else {
-        throw new Error("Failed to submit form");
+        const errorText = await response.text();
+        throw new Error(`Failed to submit form: ${errorText}`);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
