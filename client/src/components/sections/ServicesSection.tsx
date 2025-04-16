@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ServiceFormModal } from "../forms/ServiceFormModal";
+import { cdnaReportImg, proofOfFundsImg } from "@/assets";
 
 interface ServiceProps {
   title: string;
@@ -20,7 +21,7 @@ const services: ServiceProps[] = [
     title: "CDNA Reports",
     description: "This comprehensive property valuation is as close as you can get to a professional appraisal without the high cost.",
     price: "$34.97",
-    imageSrc: "https://images.unsplash.com/photo-1560518883-f9f81a25e1c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    imageSrc: cdnaReportImg,
     buttonText: "Order Now",
     formTitle: "Order CDNA Report",
     formDescription: "Fill out the form below to order your CDNA Report. We'll process your order and contact you with next steps.",
@@ -32,7 +33,7 @@ const services: ServiceProps[] = [
     title: "Proof of Funds",
     description: "Obtain your proof of funds letter to accompany purchase offers for investment properties across the nation for only $19.97.",
     price: "$19.97",
-    imageSrc: "https://images.unsplash.com/photo-1582402978777-53d2506b8886?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    imageSrc: proofOfFundsImg,
     buttonText: "Request Now",
     formTitle: "Request Proof of Funds",
     formDescription: "Complete this form to request your Proof of Funds letter. Once submitted, we'll prepare your document and contact you shortly.",
@@ -91,10 +92,22 @@ export function ServicesSection() {
               key={index} 
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
             >
-              <div 
-                className="w-full h-48 bg-cover bg-center"
-                style={{ backgroundImage: `url(${service.imageSrc})` }}
-              ></div>
+              {typeof service.imageSrc === 'string' && service.imageSrc.includes('http') ? (
+                // For external URL images
+                <div 
+                  className="w-full h-48 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${service.imageSrc})` }}
+                ></div>
+              ) : (
+                // For imported SVG/local images
+                <div className="w-full h-48 flex items-center justify-center bg-gray-50">
+                  <img 
+                    src={service.imageSrc} 
+                    alt={service.title}
+                    className="h-full w-full object-contain" 
+                  />
+                </div>
+              )}
               <div className="p-6">
                 <h3 className="text-xl font-heading font-semibold mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
