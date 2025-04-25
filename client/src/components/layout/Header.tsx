@@ -11,9 +11,9 @@ export function Header() {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+      <div className="container mx-auto px-4 py-2 flex flex-wrap items-center justify-between">
         <div className="flex items-center">
-          <img src={logoImg} alt="Real Invest Funding LLC" className="h-16 mr-4" />
+          <img src={logoImg} alt="Real Invest Funding LLC" className="h-24 mr-4" />
         </div>
         
         <nav className="hidden lg:flex space-x-8">
