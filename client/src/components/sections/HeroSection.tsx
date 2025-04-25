@@ -3,8 +3,8 @@ import heroBackgroundImg from "@/assets/images/hero-background.png";
 
 export function HeroSection() {
   return (
-    <section className="relative bg-primary text-white py-20 overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-black opacity-60">
+    <section className="relative bg-amber-800 text-white py-20 overflow-hidden">
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-amber-900 to-amber-600 opacity-60">
         <div 
           className="w-full h-full bg-cover bg-center opacity-75"
           style={{ 
@@ -12,6 +12,7 @@ export function HeroSection() {
           }}
         ></div>
       </div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-yellow-600/30 to-amber-900/30"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">Real Invest Funding LLC</h1>
