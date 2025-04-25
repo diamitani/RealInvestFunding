@@ -1,2 +1,2 @@
 export { LogoIcon } from './LogoIcon';
-export { cdnaReportImg, proofOfFundsImg, logoImg } from './images';
+export { cdnaReportImg, proofOfFundsImg, logoImg, heroBackgroundImg } from './images';
