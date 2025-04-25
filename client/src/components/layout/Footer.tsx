@@ -1,4 +1,4 @@
-import { LogoIcon } from "@/assets/index";
+import { logoImg } from "@/assets/index";
 
 export function Footer() {
   return (
@@ -6,9 +6,8 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-heading font-semibold mb-4">Real Invest Funding LLC</h3>
+            <img src={logoImg} alt="Real Invest Funding LLC" className="h-16 mb-4 bg-white p-2 rounded-lg" />
             <p className="text-gray-300 mb-4">Your partner in real estate investment funding with flexible financing solutions.</p>
-
           </div>
           
           <div>

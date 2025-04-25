@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { LogoIcon } from "@/assets/index";
+import { logoImg } from "@/assets/index";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +13,7 @@ export function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
         <div className="flex items-center">
-          <LogoIcon className="h-12 mr-4" />
-          <div>
-            <h1 className="text-xl md:text-2xl font-heading font-bold text-primary">Real Invest Funding LLC</h1>
-            <p className="text-xs text-neutral-400 hidden md:block">Your Partner in Real Estate Investment</p>
-          </div>
+          <img src={logoImg} alt="Real Invest Funding LLC" className="h-16 mr-4" />
         </div>
         
         <nav className="hidden lg:flex space-x-8">
