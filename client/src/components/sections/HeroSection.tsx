@@ -3,9 +3,9 @@ import heroBackgroundImg from "@/assets/images/hero-background.png";
 
 export function HeroSection() {
   return (
-    <section className="bg-gray-50 py-12 overflow-hidden border-b border-gray-200">
+    <section className="bg-gray-50 py-16 overflow-hidden border-b border-gray-200">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           {/* Left Side: Text Content */}
           <div className="w-full md:w-1/2 space-y-4">
             <h1 className="text-gray-800 text-4xl md:text-5xl font-bold leading-none tracking-tight">
@@ -33,8 +33,8 @@ export function HeroSection() {
           </div>
           
           {/* Right Side: Image */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <div className="relative w-full max-w-md overflow-hidden rounded-lg shadow-xl border border-amber-100">
+          <div className="w-full md:w-1/2 flex justify-center md:justify-start md:-ml-10 md:-mt-8">
+            <div className="relative w-full max-w-xl overflow-hidden rounded-lg shadow-xl border border-amber-100 transform scale-125">
               <img 
                 src={heroBackgroundImg} 
                 alt="Houses representing real estate investment" 
