@@ -4,8 +4,8 @@ import heroBackgroundImg from "@/assets/images/hero-background.png";
 export function HeroSection() {
   return (
     <section className="bg-gray-50 py-10 overflow-hidden border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 items-center">
           {/* Left Side: Text Content */}
           <div className="order-2 md:order-1 space-y-4 max-w-xl mx-auto md:mx-0">
             <h1 className="text-gray-900 text-4xl md:text-5xl font-bold leading-tight tracking-tight">
@@ -33,14 +33,14 @@ export function HeroSection() {
           </div>
           
           {/* Right Side: Image */}
-          <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative w-full max-w-md overflow-hidden rounded-lg shadow-lg border border-amber-200">
+          <div className="order-1 md:order-2 flex justify-center items-center h-full">
+            <div className="relative w-full max-w-lg overflow-hidden rounded-lg shadow-lg border border-amber-200 transform scale-110">
               <img 
                 src={heroBackgroundImg} 
                 alt="Houses representing real estate investment" 
-                className="w-full h-auto object-cover filter contrast-125 brightness-110 saturate-125"
+                className="w-full h-auto object-cover filter contrast-125 brightness-115 saturate-130"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-amber-500/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-amber-500/25 via-transparent to-transparent"></div>
             </div>
           </div>
         </div>
