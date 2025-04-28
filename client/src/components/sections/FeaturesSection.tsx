@@ -12,8 +12,8 @@ const features: FeatureProps[] = [
   },
   {
     icon: "fas fa-home",
-    title: "It Looks at Collateral, Not You",
-    description: "Private money lenders are interested in the property value since the property is the asset that's backing the loan, not your credit score."
+    title: "It's Asset-Based, Not You",
+    description: "Private money lenders are interested in the property value since the property is the asset that's backing the loan, not your credit score. We focus on asset-based deals instead of borrower qualifications."
   },
   {
     icon: "fas fa-money-bill-wave",
